@@ -1,0 +1,15 @@
+{
+  "name": "cooapp-main",
+  "version": "1.0.0",
+  "description": "CooApp - SeaTalk Web App",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@seatalk/web-app-sdk": "^1.5.0"
+  }
+}
