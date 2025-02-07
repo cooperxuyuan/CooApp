@@ -1,15 +1,13 @@
-import { scanCode } from '@seatalk/web-app-sdk';
-
-function openScanner() {
-    scanCode({ codeType: ['qrCode'] })
-        .then((res) => {
-            console.log('Scan result:', res);
-        })
-        .catch((err) => {
-            console.error('Scan error:', err);
-        });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('scanButton').addEventListener('click', openScanner);
+document.getElementById("scanBtn").addEventListener("click", function () {
+    if (window.SeaTalk) {
+        SeaTalk.scanCode()
+            .then(result => {
+                document.getElementById("result").innerText = "Scanned Code: " + result;
+            })
+            .catch(error => {
+                document.getElementById("result").innerText = "Error: " + error.message;
+            });
+    } else {
+        alert("SeaTalk Web SDK is not available. Please open this page in the SeaTalk app.");
+    }
 });
