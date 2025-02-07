@@ -4,7 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SeaTalk Web App</title>
-    <script type="module" src="script.js"></script>
+    <script type="module">
+        import { scanCode } from '@seatalk/web-app-sdk';
+
+        function openScanner() {
+            scanCode({ codeType: ['qrCode'] })
+                .then((res) => {
+                    console.log('Scan result:', res);
+                })
+                .catch((err) => {
+                    console.error('Scan error:', err);
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('scanButton').addEventListener('click', openScanner);
+        });
+    </script>
     <style>
         body {
             display: flex;
