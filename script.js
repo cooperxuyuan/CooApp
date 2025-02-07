@@ -2,7 +2,10 @@ import { scanCode } from '@seatalk/web-app-sdk';
 
 document.getElementById("scanBtn").addEventListener("click", async function () {
     try {
+        console.log("SeaTalk SDK detected. Attempting to scan QR...");
+        
         const result = await scanCode({ codeType: ['qrCode'] });
+
         console.log("Scan successful:", result);
         document.getElementById("result").innerText = "Scanned Code: " + JSON.stringify(result);
     } catch (error) {
