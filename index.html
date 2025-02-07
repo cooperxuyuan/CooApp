@@ -3,48 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeaTalk Web App</title>
-    <script type="module">
-        import { scanCode } from '@seatalk/web-app-sdk';
-
-        function openScanner() {
-            scanCode({ codeType: ['qrCode'] })
-                .then((res) => {
-                    console.log('Scan result:', res);
-                })
-                .catch((err) => {
-                    console.error('Scan error:', err);
-                });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('scanButton').addEventListener('click', openScanner);
-        });
-    </script>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>SeaTalk QR Scanner</title>
+    <script src="https://open.seatalk.io/sdk/web"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="scanButton">Scan QR Code</button>
+    <h1>Scan QR Code using SeaTalk Web SDK</h1>
+    <button id="scanBtn">Scan QR</button>
+    <p id="result"></p>
+
+    <script src="script.js"></script>
 </body>
 </html>
